@@ -1,0 +1,33 @@
+{
+  "name": "mike-rose-illustrations",
+  "version": "0.0.1",
+  "description": "Official website for Mike Rose Illustrations",
+  "main": "index.js",
+  "license": "MIT",
+  "keywords": [
+    "gatsby",
+    "gatsby-theme",
+    "react"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "pretty-check": "prettier --check \"src/**/*.{js}\"",
+    "pretty": "prettier --write \"src/**/*.{js}\"",
+    "sitemap": "gatsby build && gatsby serve"
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.16",
+    "@emotion/styled": "^10.0.15",
+    "gatsby": "^2.13.76",
+    "gatsby-plugin-emotion": "^4.1.3",
+    "gatsby-plugin-react-helmet": "^3.1.4",
+    "gatsby-plugin-robots-txt": "^1.5.0",
+    "gatsby-plugin-sitemap": "^2.2.8",
+    "prettier": "^1.18.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-helmet": "^5.2.1"
+  }
+}

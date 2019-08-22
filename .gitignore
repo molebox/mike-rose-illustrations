@@ -1,5 +1,1 @@
 node_modules/
-# gatsby files
-.cache/
-public
-yarn-error.log
