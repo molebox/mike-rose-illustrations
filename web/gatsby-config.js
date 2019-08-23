@@ -13,6 +13,17 @@ module.exports = {
     plugins: [
       `gatsby-plugin-emotion`,
       `gatsby-plugin-sitemap`,
-      `gatsby-plugin-robots-txt`
+      `gatsby-plugin-robots-txt`,
+      {
+        resolve: 'gatsby-plugin-google-fonts',
+        options: {
+          fonts: [
+            `Rock Salt`,
+            `Open Sans`,
+            `source sans pro\:300,400,400i,700` 
+          ]
+        }
+    },
+      'gatsby-plugin-theme-ui'
     ],
   }

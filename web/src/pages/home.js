@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CustomWork = () => (
+const Home = () => (
 	<div
 		style={{
 			display: 'flex',
@@ -8,8 +8,8 @@ const CustomWork = () => (
 			alignItems: 'center',
 		}}
 	>
-		<h1>This is the Custom Work page</h1>
+		<h1>This is the Home page</h1>
 	</div>
 );
 
-export default CustomWork;
+export default Home;
