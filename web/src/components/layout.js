@@ -10,6 +10,15 @@ const MainGrid = styled.div`
 
 	height: 100vh;
 	overflow: hidden;
+
+	// @media (max-width: 768px) {
+	//     grid-template-columns: 1fr;
+	//     grid-template-areas:
+	//     'sidebar'
+	//     'main';
+
+	//     overflow: auto;
+	//   }
 `;
 
 const Layout = ({ children }) => (

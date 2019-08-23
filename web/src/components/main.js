@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Main = () => {
+const Main = ({ children }) => {
 	return (
 		<div
 			style={{
@@ -10,7 +10,7 @@ const Main = () => {
 				border: '1px solid black',
 			}}
 		>
-			<h1>MAIN CONTENT AND PAGES</h1>
+			{children}
 		</div>
 	);
 };

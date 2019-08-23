@@ -114,8 +114,8 @@ const Sidebar = () => {
 				</Link>
 			</Links>
 			<EmailContainer>
-				<Link className="link" href="mailto:mikeroseillustrations@email.com" target="_blank" rel="noreferrer">
-					mikeroseillustrations@email.com
+				<Link className="link" href="mailto:mikeroseillustrations@email.com" target="_top">
+					mikeroseillustrations@gmail.com
 				</Link>
 			</EmailContainer>
 		</Container>
