@@ -1,7 +1,10 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui';
+import { jsx, css, useColorMode } from 'theme-ui';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
+// import ToggleColor from './colorModeToggle';
+
+import { ColorToggle } from './colorModeToggle';
 
 const Container = styled.div`
 	display: grid;
@@ -23,6 +26,8 @@ const Container = styled.div`
 const TitleConatiner = styled.div`
 	grid-area: title;
 	display: flex;
+	flex-direction: column;
+	padding: 1em;
 	justify-content: center;
 	align-items: center;
 `;
@@ -49,7 +54,6 @@ const Links = styled.div`
 
 	.link {
 		text-decoration: none;
-		color: black;
 		display: flex;
 		justify-content: center;
 
@@ -82,34 +86,50 @@ const EmailContainer = styled.div`
 	}
 `;
 
+
 const Sidebar = () => {
 	return (
 		<Container>
 			<TitleConatiner>
-				<Title>mike rose illustrations</Title>
+				<ColorToggle />
+				<Title sx={{
+					color: 'text'
+				}}>mike rose illustrations</Title>
 			</TitleConatiner>
 			<Links>
-				<Link className="link" to="/">
+				<Link  sx={{
+					color: 'text'
+				}} className="link" to="/">
 					About Mike
 				</Link>
 
-				<Link className="link" to="/gallery">
+				<Link  sx={{
+					color: 'text'
+				}} className="link" to="/gallery">
 					Artwork
 				</Link>
 
-				<Link className="link" to="/customWork">
+				<Link  sx={{
+					color: 'text'
+				}} className="link" to="/customWork">
 					Custom work
 				</Link>
 
-				<Link className="link" to="/shop">
+				<Link  sx={{
+					color: 'text'
+				}} className="link" to="/shop">
 					Shop
 				</Link>
 
-				<Link className="link" to="/blog">
+				<Link  sx={{
+					color: 'text'
+				}} className="link" to="/blog">
 					Blog
 				</Link>
 
-				<Link className="link" to="/instagram">
+				<Link  sx={{
+					color: 'text'
+				}} className="link" to="/instagram">
 					Instagram
 				</Link>
 			</Links>
