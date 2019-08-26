@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 import Sidebar from '../components/sidebar/Sidebar';
-import Layout from '../components/Layout';
-import Main from '../components/Main';
+import Layout from '../components/layout';
+import Main from '../components/main';
 import styled from '@emotion/styled';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
