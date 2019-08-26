@@ -1,61 +1,54 @@
 /** @jsx jsx */
-import { jsx, css, useColorMode } from 'theme-ui';
-import sun from "../../assets/sun.png"
-import moon from "../../assets/moon.png"
-import ReactSwitch from "react-switch"
+import { jsx, useColorMode } from 'theme-ui';
+import sun from '../../assets/sun.png';
+import moon from '../../assets/moon.png';
+import ReactSwitch from 'react-switch';
 
-// export const Switch = props => (
-// 	<ReactSwitch
-// 	  {...props}
-// 	/>
-//   )
+const checkedIcon = (
+	<img
+		alt="moon indicating dark mode"
+		src={moon}
+		width="16"
+		height="16"
+		role="presentation"
+		css={{
+			pointerEvents: `none`,
+			margin: 4,
+		}}
+	/>
+);
 
-  const checkedIcon = (
+const uncheckedIcon = (
 	<img
-	  alt="moon indicating dark mode"
-	  src={moon}
-	  width="16"
-	  height="16"
-	  role="presentation"
-	  css={{
-		pointerEvents: `none`,
-		margin: 4,
-	  }}
+		alt="sun indicating light mode"
+		src={sun}
+		width="16"
+		height="16"
+		role="presentation"
+		css={{
+			pointerEvents: `none`,
+			margin: 4,
+		}}
 	/>
-  )
-  
-  const uncheckedIcon = (
-	<img
-	  alt="sun indicating light mode"
-	  src={sun}
-	  width="16"
-	  height="16"
-	  role="presentation"
-	  css={{
-		pointerEvents: `none`,
-		margin: 4,
-	  }}
-	/>
-  )
+);
 
 export const ColorToggle = () => {
-	const [colorMode, setColorMode] = useColorMode()
-  const isDark = colorMode === `dark`
-  const toggleColorMode = e => {
-    setColorMode(isDark ? `light` : `dark`)
-  }
-	return (<ReactSwitch
-            aria-label="Toggle dark mode"
-            sx={{
-				backgroundColor: 'text'
-			}}
-            checkedIcon={checkedIcon}
-            uncheckedIcon={uncheckedIcon}
-            checked={isDark}
-            onChange={toggleColorMode}
-          />
-	)
-}
+	const [colorMode, setColorMode] = useColorMode();
+	const isDark = colorMode === `dark`;
+	const toggleColorMode = (e) => {
+		setColorMode(isDark ? `light` : `dark`);
+	};
+	return (
+		<ReactSwitch
+			aria-label="Toggle dark mode"
+			onColor="#000"
+			checkedIcon={checkedIcon}
+			uncheckedIcon={uncheckedIcon}
+			checked={isDark}
+			onChange={toggleColorMode}
+		/>
+	);
+};
 
 // const ToggleWrapper = styled.div`
 // 	transform: translate3d(-50%, -50%, 0);

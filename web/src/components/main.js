@@ -1,17 +1,46 @@
-import React from 'react';
+/** @jsx jsx */
+import { jsx } from 'theme-ui';
+import styled from '@emotion/styled';
+import Footer from './Footer';
+import BurgerNav from './burgernav';
+
+const Container = styled.div`
+	grid-area: main;
+
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 3fr;
+	grid-template-areas:
+		'content'
+		'footer';
+
+	height: 100vh;
+	overflow: hidden;
+`;
+
+const Content = styled.main`
+	grid-area: content;
+`;
+
+const MainWrap = styled.div`
+	height: 100vh;
+	overflow: hidden;
+`;
+const PageWrap = styled.div`
+	overflow: auto;
+`;
 
 const Main = ({ children }) => {
 	return (
-		<div
-			style={{
-				display: 'flex',
-				justifyContent: 'center',
-				alignItems: 'center',
-				border: '1px solid black',
-			}}
-		>
-			{children}
-		</div>
+		<MainWrap>
+			<Container>
+				<BurgerNav pageWrapId={'PageWrap'} outerContainerId={'MainWrap'} />
+				<PageWrap>
+					<Content>{children}</Content>
+					<Footer />
+				</PageWrap>
+			</Container>
+		</MainWrap>
 	);
 };
 

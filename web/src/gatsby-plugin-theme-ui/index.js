@@ -24,4 +24,18 @@ export default {
 		body: 'Open Sans',
 		heading: 'Rock Salt',
 	},
+	fontWeights: {
+		body: 300,
+		heading: 400,
+		bold: 700,
+	},
+	lineHeights: {
+		body: '110%',
+		heading: 1.125,
+	},
+	letterSpacing: {
+		body: '2px',
+		bio: '5px',
+	},
+	fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
 };
