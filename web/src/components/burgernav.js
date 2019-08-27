@@ -160,6 +160,18 @@ export default (props) => {
 				>
 					Instagram
 				</Link>
+
+				{/* <Link
+					sx={{
+						color: 'background',
+						fontSize: '1rem'
+					}}
+					className="link"
+					href="mailto:mikeroseillustrations@email.com"
+					target="_top"
+				>
+				mikeroseillustrations@gmail.com
+			</Link> */}
 			</Menu>
 		</Styles>
 	);

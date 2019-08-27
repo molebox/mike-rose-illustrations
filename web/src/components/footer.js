@@ -6,6 +6,8 @@ import { Link } from 'gatsby';
 const Box = styled.footer`
 	grid-area: footer;
 	height: 7em;
+	position: fixed;
+	bottom: 0;
 	// background-color: #ecebeb;
 `;
 

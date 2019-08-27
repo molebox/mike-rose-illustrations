@@ -48,6 +48,14 @@ module.exports = {
         // token: process.env.MY_SANITY_TOKEN
       }
     },
+    {
+      resolve: 'gatsby-theme-stripe-checkout-button',
+      options: {
+        STRIPE_API_KEY: process.env.STRIPE_API_KEY,
+        STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
+        siteUrl: 'https://localhost:8000'
+      }
+    },
       'gatsby-plugin-theme-ui'
     ],
   }

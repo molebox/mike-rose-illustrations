@@ -54,8 +54,8 @@ export default {
     },
     {
       name: 'blurb',
-      title: 'Blurb',
-      type: 'localeString'
+      title: 'Blurb - A Short Description',
+      type: 'text'
     },
     {
       name: 'categories',
@@ -70,8 +70,8 @@ export default {
     },
     {
       name: 'body',
-      title: 'Body',
-      type: 'localeBlockContent'
+      title: 'Body - About the Item',
+      type: 'text'
     }
   ],
 

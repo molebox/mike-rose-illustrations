@@ -10,9 +10,8 @@ const Container = styled.div`
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: 3fr;
-	grid-template-areas:
-		'content'
-		'footer';
+	grid-template-areas: 'content';
+	// 'footer';
 
 	height: 100vh;
 	overflow: hidden;
@@ -37,7 +36,7 @@ const Main = ({ children }) => {
 				<BurgerNav pageWrapId={'PageWrap'} outerContainerId={'MainWrap'} />
 				<PageWrap>
 					<Content>{children}</Content>
-					<Footer />
+					{/* <Footer /> */}
 				</PageWrap>
 			</Container>
 		</MainWrap>
