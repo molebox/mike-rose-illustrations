@@ -8,6 +8,9 @@ import styled from '@emotion/styled';
 import Img from 'gatsby-image';
 import { graphql, useStaticQuery } from 'gatsby';
 import _ from 'lodash';
+import { Dialog } from '@reach/dialog';
+import '@reach/dialog/styles.css';
+import { Checkout } from 'gatsby-theme-stripe-checkout-button';
 
 const shop = ['S', 'H', 'O', 'P'];
 
@@ -16,20 +19,30 @@ const Container = styled.main`
 	// grid-template-rows: 1fr 2fr;'
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
+	margin: 2.5em;
 	// height: 100vh;
-	// margin-top: 2em;
 `;
 
 const Row = styled.div`
+	// display: flex;
+	// flex-direction: row;
+	// flex-wrap: wrap;
+	// width: 100%;
+	// margin: 0 2em 5em 2em;
+
+	display: -ms-flexbox;
+	-ms-flex-wrap: wrap;
+	-ms-flex-direction: row;
+	-webkit-flex-flow: row wrap; 
+	flex-flow: row wrap; 
+	display: -webkit-box;
 	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	width: 100%;
-	margin: 0 2em 5em 2em;
+	margin: 1em auto;
 `;
 
 const Column = styled.div`
-	diaplay: flex;
+	display: flex;
 	flex-direction: column;
 	flex-basis: 100%;
 
@@ -50,10 +63,23 @@ const PictureBox = styled.div`
 `;
 
 const ImageContainer = styled.div`
+	max-width: 2000px;
+	padding: .5vw;
+	font-size: 0;
+	// border: 2px solid whitesmoke;
+	display: -ms-flexbox;
+	-ms-flex-wrap: wrap;
+	-ms-flex-direction: row;
+	-webkit-flex-flow: row wrap; 
+	flex-flow: row wrap; 
+	display: -webkit-box;
 	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 1em;
+	margin: 0 auto;
+
+	// display: flex;
+	// justify-content: center;
+	// align-items: center;
+	// padding: 1em;
 
 	-webkit-animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) 500ms both;
 	animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) 500ms both;
@@ -77,9 +103,20 @@ const ImageContainer = styled.div`
 `;
 
 const Image = styled(Img)`
-	display: flex;
-	width: 25em;
-	height: 20em;
+
+
+	-webkit-box-flex: auto;
+	-ms-flex: auto;
+	flex: auto; 
+	width: 400px;
+	margin: .5vw; 
+
+	// display: flex;
+
+	// width: 50em;
+	// height: 25em;
+	cursor: pointer;
+
 	margin: 0 4em 0 0;
 	border-radius: 0.4em;
 	box-shadow: 8px 12px 22px 5px hsla(0, 0%, 0%, 0.21);
@@ -92,7 +129,7 @@ const Image = styled(Img)`
 	}
 
 	@media (max-width: 1024px) {
-		width: 15em;
+		width: 17em;
 		height: 15em;
 		border-radius: 0.4em;
 		box-shadow: 8px 12px 22px 5px hsla(0, 0%, 0%, 0.21);
@@ -100,12 +137,23 @@ const Image = styled(Img)`
 `;
 
 const ProductBox = styled.div`
-	//   height: 300px;
-	//   margin: 1em;
-	//   font-size: 1em;
 	width: 70%;
 	display: flex;
 	justify-content: flex-start;
+
+	@media (max-width: 920px) {
+		display: flex;
+		justify-content: center;
+		align-content: center;
+		margin-left: 1em;
+	}
+
+	@media (max-width: 1024px) {
+		display: flex;
+		justify-content: center;
+		align-content: center;
+		margin-left: 1em;
+	}
 `;
 
 const DescriptionContainer = styled.div`
@@ -135,21 +183,54 @@ const DescriptionContainer = styled.div`
 	}
 `;
 
+const PriceContainer = styled.div`
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+`;
+
+const CheckoutContainer = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 1em;
+`;
+
+const Button = styled.button`
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	margin: 2px 0;
+	border: solid 1px transparent;
+	border-radius: 4px;
+	padding: 0.5em 1em;
+	cursor: pointer;
+	box-shadow: 8px 12px 22px 5px hsla(0, 0%, 0%, 0.21);
+
+`;
+
+const PreviewButton = styled.button`
+	background: transparent;
+	border: none;
+	padding: 0;
+	margin: 0;
+	text-decoration: none;
+
+	&:focus {
+		outline: 0;
+	}
+`;
+
 const Shop = () => {
 	const [sanitySKU, setSanitySKU] = React.useState([]);
+	const [lightbox, setShowLightbox] = React.useState({ showLightbox: false, selectedImage: null });
 	const products = useStaticQuery(query);
 	const stripe = products.allStripeSku.edges;
 	const sanity = products.allSanityProduct.edges;
 
 	React.useEffect(() => {
-		console.log('SANITY: ', _.flattenDeep(sanity));
-		console.log('STRIPE: ', _.flattenDeep(stripe));
 		// finds the matching products from both sanity and stripe and matches them on the products sku
 		setSanitySKU(
-			_.flattenDeep(sanity).filter((node) => _.flattenDeep(stripe).find((sku) => node.defaultProductVariant === sku.id))
-		);
-		console.log(
-			'SKU: ',
 			_.flattenDeep(sanity).filter((node) => _.flattenDeep(stripe).find((sku) => node.defaultProductVariant === sku.id))
 		);
 	}, [sanity, stripe]);
@@ -164,7 +245,24 @@ const Shop = () => {
 							<Column>
 								<PictureBox>
 									<ImageContainer>
-										<Image fluid={node.defaultProductVariant.images.asset.fluid} />
+										<PreviewButton
+											key={node.defaultProductVariant.images.asset.fluid}
+											type="button"
+											onClick={() =>
+												setShowLightbox({
+													showLightbox: true,
+													selectedImage: node.defaultProductVariant.images.asset.fluid,
+												})
+											}
+										>
+										<div style={{width: '100%', height: 'auto'}}>
+										<Image
+												fluid={node.defaultProductVariant.images.asset.fluid}
+												alt={node.defaultProductVariant.title}
+											/>
+										</div>
+											
+										</PreviewButton>
 									</ImageContainer>
 								</PictureBox>
 							</Column>
@@ -179,6 +277,9 @@ const Shop = () => {
 												fontSize: '1rem',
 												lineHeight: 'body',
 												letterSpacing: 'body',
+												borderBottom: 'solid 0.1em',
+												borderColor: 'text',
+												padding: '1em',
 											}}
 										>
 											{node.defaultProductVariant.title}
@@ -207,18 +308,60 @@ const Shop = () => {
 										>
 											{node.body}
 										</h3>
-										<h3
-											sx={{
-												color: 'text',
-												fontFamily: 'body',
-												fontWeight: 'body',
-												fontSize: '.9rem',
-												lineHeight: 'body',
-												letterSpacing: 'body',
-											}}
-										>
-											£{node.defaultProductVariant.price}
-										</h3>
+										<PriceContainer>
+											<h3
+												sx={{
+													color: 'text',
+													fontFamily: 'body',
+													fontWeight: 'bold',
+													fontSize: '.9rem',
+													lineHeight: 'body',
+													letterSpacing: 'body',
+												}}
+											>
+												Type: {node.categories[0].title}
+											</h3>
+											<h3
+												sx={{
+													color: 'text',
+													fontFamily: 'body',
+													fontWeight: 'bold',
+													fontSize: '.9rem',
+													lineHeight: 'body',
+													letterSpacing: 'body',
+												}}
+											>
+												Price: £{node.defaultProductVariant.price}
+											</h3>
+										</PriceContainer>
+										<CheckoutContainer>
+										<Checkout
+											button={
+												<Button
+													type="submit"
+													sx={{
+													color: 'background',
+													backgroundColor: 'primary',
+													fontFamily: 'body',
+													fontWeight: 'bold',
+													fontSize: '1rem',
+													lineHeight: 'body',
+													letterSpacing: 'text',
+													':active': {
+														backgroundColor: 'light',
+													},
+													":hover": {
+														backgroundColor: 'medium'
+													}
+													}}
+												>
+											Purchase
+										</Button>
+											}
+											sku={node.defaultProductVariant.sku}
+											quantity={1}
+										/>
+										</CheckoutContainer>
 									</DescriptionContainer>
 								</ProductBox>
 							</Column>
@@ -226,6 +369,29 @@ const Shop = () => {
 					))}
 				</Container>
 			</Main>
+			{/* {lightbox.showLightbox && (
+				<Dialog style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
+					<Image fluid={lightbox.selectedImage} />
+					<Button
+						sx={{
+							color: 'background',
+							backgroundColor: 'primary',
+							fontFamily: 'body',
+							fontWeight: 'bold',
+							fontSize: '.7rem',
+							lineHeight: 'body',
+							letterSpacing: 'text',
+							margin: '2em 0 0 0',
+							':active': {
+								backgroundColor: 'light',
+							},
+						}}
+						onClick={() => setShowLightbox({ showLightbox: false })}
+					>
+						Close
+					</Button>
+				</Dialog>
+			)} */}
 		</Layout>
 	);
 };
@@ -252,7 +418,7 @@ export const query = graphql`
 						images {
 							asset {
 								fluid {
-									src
+									...GatsbySanityImageFluid
 								}
 							}
 						}

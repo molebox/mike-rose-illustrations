@@ -89,7 +89,6 @@ export const SubTitle = styled.h4`
 	}
 `;
 
-
 export const Index = () => {
 	const sanity = useStaticQuery(query);
 	const edges = sanity.allSanityHomePage.edges;

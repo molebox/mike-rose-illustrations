@@ -10,6 +10,8 @@ export default {
 		text: '#000',
 		background: '#fff',
 		primary: '#0057B8',
+		medium: '#0975eb',
+		light: '#1a76db',
 		accent: '#FFCD00',
 		modes: {
 			// thsi is the dark color mode colors
@@ -17,6 +19,8 @@ export default {
 				text: '#fff',
 				background: '#000',
 				primary: '#FFCD00',
+				light: '#1a76db',
+				medium: '#0975eb',
 			},
 		},
 	},
@@ -35,7 +39,7 @@ export default {
 	},
 	letterSpacing: {
 		body: '2px',
-		bio: '5px',
+		text: '5px',
 	},
 	fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 72],
 };

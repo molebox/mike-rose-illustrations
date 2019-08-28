@@ -1,4 +1,5 @@
-import React from 'react';
+/** @jsx jsx */
+import { jsx } from 'theme-ui';
 import { slide as Menu } from 'react-burger-menu';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
@@ -49,7 +50,7 @@ const Styles = styled.div`
 	}
 
 	.bm-burger-bars {
-		background: #570b12;
+		background: #0057b8;
 		outline: 0;
 	}
 	.bm-cross-button {
