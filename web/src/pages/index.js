@@ -6,8 +6,6 @@ import Main from '../components/main';
 import styled from '@emotion/styled';
 import { graphql, useStaticQuery } from 'gatsby';
 import Img from 'gatsby-image';
-import { Title } from './../components/text/Title';
-import { SubTitle } from './../components/text/SubTitle';
 
 const home = ['H', 'O', 'M', 'E'];
 
@@ -60,6 +58,37 @@ const Image = styled(Img)`
 		margin: 0 2em 5em 2em;
 	}
 `;
+
+export const Title = styled.h1`
+	font-size: 5em;
+	display: flex;
+	justify-content: center;
+
+	@media (max-width: 920px) {
+		font-size: 3em;
+	}
+
+	@media (max-width: 1024px) {
+		font-size: 1em;
+	}
+`;
+
+export const SubTitle = styled.h4`
+	font-size: 2em;
+	margin: 0 8em 5em 8em;
+	padding: 2em;
+
+	@media (max-width: 920px) {
+		font-size: 0.7em;
+		margin: 0 50px 0px 50px;
+	}
+
+	@media (max-width: 1024px) {
+		font-size: 1.2em;
+		margin: 0 1em 1em 1em;
+	}
+`;
+
 
 export const Index = () => {
 	const sanity = useStaticQuery(query);

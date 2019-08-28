@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 import styled from '@emotion/styled';
-import Footer from './footer';
 import BurgerNav from './burgernav';
 
 const Container = styled.div`
