@@ -23,10 +23,12 @@ const Container = styled.div`
 `;
 
 const Sidebar = ({ letters }) => (
-	<Container sx={{
-		borderRight: 'solid 3px',
-		borderColor: 'text'
-	}}>
+	<Container
+		sx={{
+			borderRight: 'solid 3px',
+			borderColor: 'text',
+		}}
+	>
 		<Section>
 			{letters.map((letter, index) => (
 				<div key={index}>

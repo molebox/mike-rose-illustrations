@@ -14,9 +14,10 @@ const Layout = ({ children }) => (
 	<Container>
 		<Global
 			styles={css`
-				body {
+				* {
 					margin: 0;
 					padding: 0;
+					box-sizing: border-box;
 				}
 				scroll-behavior: smooth;
 				overflow-y: scroll;

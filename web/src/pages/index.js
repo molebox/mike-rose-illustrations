@@ -14,12 +14,13 @@ const Content = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	padding: 0;
+	margin-top: 2em;
 `;
 
 const TitleAndLogo = styled.div`
 	display: flex;
 	flex-direction: row;
-	// margin-right: 10em;
+	margin: 2em;
 	justify-content: center;
 	align-items: center;
 
@@ -75,8 +76,11 @@ export const Title = styled.h1`
 
 export const SubTitle = styled.h4`
 	font-size: 2em;
-	margin: 0 8em 5em 8em;
-	padding: 2em;
+	margin-bottom: 2em;
+	// padding: 2em;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
 
 	@media (max-width: 920px) {
 		font-size: 0.7em;

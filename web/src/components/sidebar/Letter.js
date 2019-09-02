@@ -42,8 +42,8 @@ const Letter = ({ children }) => (
 				}
 			}
 
-			@media (max-width: 920px) {
-				font-size: 2em;
+			@media (max-width: 700px) {
+				font-size: 1.2em;
 			}
 		`}
 	>
