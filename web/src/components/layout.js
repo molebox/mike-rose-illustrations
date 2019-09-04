@@ -19,9 +19,11 @@ const Layout = ({ children }) => (
 					padding: 0;
 					box-sizing: border-box;
 				}
-				scroll-behavior: smooth;
-				overflow-y: scroll;
-				-webkit-overflow-scrolling: touch;
+				body {
+					scroll-behavior: smooth;
+					overflow-y: scroll;
+					-webkit-overflow-scrolling: touch;
+				}
 			`}
 		/>
 		{children}

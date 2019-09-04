@@ -137,7 +137,7 @@ export default (props) => {
 						color: 'text',
 					}}
 					className="link"
-					to="/shop2"
+					to="/shop"
 				>
 					Shop
 				</Link>
