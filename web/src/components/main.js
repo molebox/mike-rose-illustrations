@@ -2,7 +2,7 @@
 import { jsx } from 'theme-ui';
 import styled from '@emotion/styled';
 import BurgerNav from './burgernav';
-import SEO from './SEO';
+// import SEO from './SEO';
 
 const Container = styled.div`
 	grid-area: main;
@@ -35,7 +35,7 @@ const Main = ({ children }) => {
 			<Container>
 				<BurgerNav pageWrapId={'PageWrap'} outerContainerId={'MainWrap'} />
 				<PageWrap>
-					<SEO/>
+					{/* <SEO/> */}
 					<Content>{children}</Content>
 					{/* <Footer /> */}
 				</PageWrap>
