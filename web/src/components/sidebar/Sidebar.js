@@ -8,14 +8,13 @@ const Container = styled.div`
 	grid-area: sidebar;
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(1fr, 1fr));
-	grid-template-rows: 0.2fr 1fr 1fr;
+	grid-template-rows: 0.5fr 1fr 1fr;
 	grid-template-areas:
-		'toggle'
+		'.'
 		'section'
 		'.';
 
-	//border-right: solid 3px black;
-	height: 110vh;
+	// height: 110vh;
 
 	position: -webkit-sticky;
 	position: sticky;

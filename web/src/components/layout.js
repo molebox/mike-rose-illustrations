@@ -23,6 +23,7 @@ const Layout = ({ children }) => (
 					scroll-behavior: smooth;
 					overflow-y: scroll;
 					-webkit-overflow-scrolling: touch;
+					overflow: hidden;
 				}
 			`}
 		/>

@@ -12,18 +12,46 @@ import { Checkout } from 'gatsby-theme-stripe-checkout-button';
 
 const shop = ['S', 'H', 'O', 'P'];
 
+const Header = styled.header`
+	height: 40vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 2rem;
+
+	& > h1 {
+		font-family: Open Sans;
+		letter-spacing: 3px;
+		font-size: 4rem;
+		margin-bottom: 2rem;
+		line-height: 1.2;
+
+		@media (max-width: 700px) {
+			font-size: 2rem;
+		}
+	}
+
+	& > p {
+		fonst-size: 2rem;
+		font-family: Open Sans;
+	}
+`;
+
 const Container = styled.main`
 	max-width: 1100px;
 	margin: auto;
 	overflow: auto;
 	padding: 0 2rem;
-	height: 100%;
+	// height: 100%;
 `;
 
-const Section = styled.div`
+const Card = styled.div`
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	grid-gap: 2rem;
+	background: #f1f1f1;
 	margin-bottom: 2rem;
 	padding: 2rem;
 
@@ -35,20 +63,22 @@ const Section = styled.div`
 		margin-bottom: 2rem;
 	}
 
-	&:nth-child(even) {
+	&:nth-child(even) img {
 		order: 2;
 	}
 
+	& img {
+		height: 400px;
+	}
+
 	@media (max-width: 700px) {
-		& {
-			display: block;
-		}
+		display: block;
 	}
 `;
 
-const ImageContainer = styled.div`
-	height: 300px;
-`;
+// const ImageContainer = styled.div`
+// 	height: 300px;
+// `;
 
 const Image = styled(Img)`
 	width: 100%;
@@ -79,7 +109,7 @@ const Description = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
-    align-items: center;
+	align-items: center;
 	-webkit-animation: fade-in 1.4s cubic-bezier(0.39, 0.575, 0.565, 1) 500ms both;
 	animation: fade-in 1.4s cubic-bezier(0.39, 0.575, 0.565, 1) 500ms both;
 
@@ -111,6 +141,10 @@ const Button = styled.button`
 	padding: 0.5em 1em;
 	cursor: pointer;
 	box-shadow: 8px 12px 22px 5px hsla(0, 0%, 0%, 0.21);
+
+	&:hover {
+		opacity: 0.9;
+	}
 `;
 
 const PreviewButton = styled.button`
@@ -119,6 +153,7 @@ const PreviewButton = styled.button`
 	padding: 0;
 	margin: 0;
 	text-decoration: none;
+	width: 100%;
 
 	&:focus {
 		outline: 0;
@@ -188,17 +223,21 @@ const Shop = () => {
 		<Layout>
 			<Sidebar letters={shop} />
 			<Main>
+				<Header>
+					<h1>Art For Purchase</h1>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+						dolore magna aliqua.
+					</p>
+				</Header>
 				<Container>
 					{sanitySKU.map(({ node }) => (
-						<Section>
-							<ImageContainer>
-								<Image
-									className="img"
-									fluid={node.defaultProductVariant.images.asset.fluid}
-									alt={node.defaultProductVariant.title}
-								/>
-                               
-							</ImageContainer>
+						<Card>
+							<Image
+								className="img"
+								fluid={node.defaultProductVariant.images.asset.fluid}
+								alt={node.defaultProductVariant.title}
+							/>
 							<Description>
 								<div>
 									<h4
@@ -242,61 +281,61 @@ const Shop = () => {
 									</h3>
 								</div>
 							</Description>
-                            <PriceContainer>
-									<h3
-										sx={{
-											color: 'text',
-											fontFamily: 'body',
-											fontWeight: 'bold',
-											fontSize: '.9rem',
-											lineHeight: 'body',
-											letterSpacing: 'body',
-										}}
-									>
-										Type: {node.categories[0].title}
-									</h3>
-									<h3
-										sx={{
-											color: 'text',
-											fontFamily: 'body',
-											fontWeight: 'bold',
-											fontSize: '.9rem',
-											lineHeight: 'body',
-											letterSpacing: 'body',
-										}}
-									>
-										Price: £{node.defaultProductVariant.price}
-									</h3>
-								</PriceContainer>
-                                <PreviewButton>
-									<Checkout
-										button={
-											<Button
-												type="submit"
-												sx={{
-													color: 'background',
-													backgroundColor: 'primary',
-													fontFamily: 'body',
-													fontWeight: 'bold',
-													fontSize: '1rem',
-													lineHeight: 'body',
-													letterSpacing: 'text',
-													':active': {
-														backgroundColor: 'light',
-													},
-													':hover': {
-														backgroundColor: 'medium',
-													},
-												}}
-											>
-												Purchase
-											</Button>
-										}
-										sku={node.defaultProductVariant.sku}
-										quantity={1}
-									/>
-								</PreviewButton>
-						</Section>
+							<PriceContainer>
+								<h3
+									sx={{
+										color: 'text',
+										fontFamily: 'body',
+										fontWeight: 'bold',
+										fontSize: '.9rem',
+										lineHeight: 'body',
+										letterSpacing: 'body',
+									}}
+								>
+									Type: {node.categories[0].title}
+								</h3>
+								<h3
+									sx={{
+										color: 'text',
+										fontFamily: 'body',
+										fontWeight: 'bold',
+										fontSize: '.9rem',
+										lineHeight: 'body',
+										letterSpacing: 'body',
+									}}
+								>
+									Price: £{node.defaultProductVariant.price}
+								</h3>
+							</PriceContainer>
+							<PreviewButton>
+								<Checkout
+									button={
+										<Button
+											type="submit"
+											sx={{
+												color: 'background',
+												backgroundColor: 'primary',
+												fontFamily: 'body',
+												fontWeight: 'bold',
+												fontSize: '1rem',
+												lineHeight: 'body',
+												letterSpacing: 'text',
+												':active': {
+													backgroundColor: 'light',
+												},
+												':hover': {
+													backgroundColor: 'medium',
+												},
+											}}
+										>
+											Purchase
+										</Button>
+									}
+									sku={node.defaultProductVariant.sku}
+									quantity={1}
+								/>
+							</PreviewButton>
+						</Card>
 					))}
 				</Container>
 			</Main>
@@ -344,9 +383,6 @@ export const query = graphql`
 		}
 	}
 `;
-
-
-
 
 // /** @jsx jsx */
 // import { jsx } from 'theme-ui';
