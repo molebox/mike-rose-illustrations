@@ -112,7 +112,7 @@ export default (props) => {
 					About Mike
 				</Link>
 
-				<Link
+				{/* <Link
 					sx={{
 						color: 'text',
 					}}
@@ -120,7 +120,7 @@ export default (props) => {
 					to="/gallery"
 				>
 					Artwork
-				</Link>
+				</Link> */}
 
 				<Link
 					sx={{
