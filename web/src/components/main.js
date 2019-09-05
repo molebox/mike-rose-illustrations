@@ -13,7 +13,7 @@ const Container = styled.div`
 	grid-template-areas: 'content';
 	// 'footer';
 
-	height: 100vh;
+	// height: 100vh;
 	overflow: hidden;
 `;
 
