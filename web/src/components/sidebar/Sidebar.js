@@ -27,7 +27,7 @@ const Container = styled.div`
 const Sidebar = ({ letters }) => (
 	<Container
 		sx={{
-			borderRight: 'solid 3px',
+			borderRight: 'solid 1.5px;',
 			borderColor: 'text',
 		}}
 	>
