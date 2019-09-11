@@ -1,9 +1,6 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 import styled from '@emotion/styled';
-import BurgerNav from './burgernav';
-// import SEO from './SEO';
-import { useSiteMetadata } from './hooks/useSiteMetadata';
 import Navbar from './navbar/navbar';
 import Footer from './footer';
 
@@ -12,22 +9,23 @@ const Container = styled.div`
 
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: .5fr 2fr .5fr;
-	grid-template-areas: 
-	'header'
-	'content';
-	'footer';
+	grid-template-rows: 0.5fr 2fr 0.5fr;
+	grid-template-areas:
+		'.'
+		'content'
+		'footer';
 
 	height: 100vh;
 	overflow: auto;
 	// overflow: hidden;
-
 `;
 
 const Content = styled.main`
 	grid-area: content;
 	background-color: #ffffff;
 	background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
+
+	flex: 1 0 auto;
 `;
 
 // const Header = styled.header`
@@ -59,31 +57,11 @@ const Content = styled.main`
 
 const Main = ({ children }) => {
 	return (
-		// <MainWrap>
 		<Container>
 			<Navbar />
-			{/* <Header>
-					<Title
-					sx={{
-						color: 'text',
-						fontFamily: 'heading',
-						fontWeight: 'heading',
-						fontSize: '3rem',
-						lineHeight: 'body',
-						letterSpacing: 'body',
-					}}
-					>
-						{title}
-					</Title>
-				</Header> */}
-			{/* <BurgerNav pageWrapId={'PageWrap'} outerContainerId={'MainWrap'} /> */}
-			{/* <PageWrap> */}
-			{/* <SEO/> */}
 			<Content>{children}</Content>
-			{/* <Footer /> */}
-			{/* </PageWrap> */}
+			<Footer />
 		</Container>
-		//  </MainWrap>
 	);
 };
 

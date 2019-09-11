@@ -8,11 +8,13 @@ export default {
 	colors: {
 		// these are the default light colors
 		text: '#000',
+		lightText: '#808080',
 		background: '#fff',
 		primary: '#0057B8',
 		medium: '#0975eb',
 		light: '#1a76db',
 		accent: '#FFCD00',
+
 		modes: {
 			// thsi is the dark color mode colors
 			dark: {

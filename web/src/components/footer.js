@@ -1,65 +1,32 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core';
+import { jsx } from 'theme-ui';
 import styled from '@emotion/styled';
-import { Link } from 'gatsby';
 
 const Box = styled.footer`
 	grid-area: footer;
-	height: 7em;
-	position: fixed;
-	bottom: 0;
-	// background-color: #ecebeb;
-`;
+	height: 3.5em;
+	box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
+	background-color: #fff;
 
-const EmailContainer = styled.div`
-	font-family: Rock Salt;
-	font-weight: 800;
-	letter-spacing: 3px;
-	font-size: 0.8em;
+	flex-shrink: 0;
+
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
-	.link {
-		text-decoration: none;
-		color: black;
-		display: flex;
-		justify-content: center;
-
-		&:hover {
-			color: #0057b8;
-		}
-
-		@media (max-width: 1024px) {
-			font-size: 1em;
-		}
-	}
-
-	@media only screen and (min-width: 992px) {
-		font-family: Rock Salt;
-		font-weight: 800;
-		letter-spacing: 3px;
-		font-size: 1.3em;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
 `;
 
 const Footer = () => (
 	<Box>
-		<EmailContainer>
-			<Link
-				sx={{
-					color: 'text',
-				}}
-				className="link"
-				href="mailto:mikeroseillustrations@email.com"
-				target="_top"
-			>
-				mikeroseillustrations@gmail.com
-			</Link>
-		</EmailContainer>
+		<h4
+			sx={{
+				font: 'heading',
+				fontFamily: 'body',
+				fontSize: [1],
+				color: 'lightText',
+			}}
+		>
+			Created by Hungry Bear Studio
+		</h4>
 	</Box>
 );
 
