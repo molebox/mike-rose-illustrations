@@ -4,7 +4,7 @@ import { Global, css } from '@emotion/core';
 
 const Container = styled.div`
 	display: grid;
-	grid-template-columns: 0.5fr 3fr;
+	grid-template-columns: 0.2fr 3fr;
 	grid-template-areas: 'sidebar main';
 	height: 100vh;
 	overflow: hidden;

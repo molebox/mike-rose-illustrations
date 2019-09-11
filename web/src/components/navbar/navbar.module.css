@@ -39,9 +39,10 @@ a {
 .header .logo {
   display: block;
   float: left;
-  font-size: 0.8em;
+  font-size: 0.7em;
   padding: 1em;
   text-decoration: none;
+  letter-spacing: 1em;
 }
 
 /* menu */
@@ -58,7 +59,7 @@ a {
   cursor: pointer;
   display: inline-block;
   /* float: right; */
-  padding: 1.7em 2em;
+  padding: 1.5em 0;
   position: relative;
   user-select: none;
 }

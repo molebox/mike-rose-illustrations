@@ -59,7 +59,6 @@ const Image = styled(Img)`
 	// margin: 0 2em 3em 2em;
 	border: solid 0.1em black;
 	border-radius: 0.4em;
-	box-shadow: 8px 12px 22px 5px hsla(0, 0%, 0%, 0.21);
 
 	@media (max-width: 920px) {
 		height: 15em;
@@ -90,12 +89,12 @@ export const SubTitle = styled.h4`
 	// align-items: flex-start;
 
 	@media (max-width: 920px) {
-		font-size: 0.7em;
+		font-size: 0.4em;
 		margin: 0 50px 0px 50px;
 	}
 
 	@media (max-width: 1024px) {
-		font-size: 1.2em;
+		font-size: 1em;
 		margin: 0 1em 1em 1em;
 	}
 `;

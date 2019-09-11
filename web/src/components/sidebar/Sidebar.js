@@ -21,6 +21,7 @@ const Container = styled.div`
 	top: 0;
 
 	background-color: #fff;
+	// width: 30%;
 `;
 
 const Sidebar = ({ letters }) => (

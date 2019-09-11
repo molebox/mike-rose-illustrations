@@ -10,7 +10,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import _ from 'lodash';
 import { Checkout } from 'gatsby-theme-stripe-checkout-button';
 
-const shop = ['S', 'H', 'O', 'P'];
+const shop = ['S', 'T', 'O', 'R', 'E'];
 
 const Header = styled.header`
 	height: 40vh;
@@ -102,7 +102,6 @@ const Card = styled.div`
 const Image = styled(Img)`
 	width: 100%;
 	border-radius: 0.4em;
-	box-shadow: 8px 12px 22px 5px hsla(0, 0%, 0%, 0.21);
 	-webkit-animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) 500ms both;
 	animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) 500ms both;
 
@@ -159,7 +158,7 @@ const Button = styled.button`
 	border-radius: 4px;
 	padding: 0.5em 1em;
 	cursor: pointer;
-	box-shadow: 8px 12px 22px 5px hsla(0, 0%, 0%, 0.21);
+	box-shadow: 6px 5px 13px 3px hsla(0, 0%, 0%, 0.13)
 
 	&:hover {
 		opacity: 0.9;

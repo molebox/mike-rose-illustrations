@@ -43,7 +43,9 @@ const Letter = ({ children }) => (
 			}
 
 			@media (max-width: 700px) {
-				font-size: 1.2em;
+				font-size: 1.1em;
+				padding: 0.5em;
+				margin-right: 0.2em;
 			}
 		`}
 	>
