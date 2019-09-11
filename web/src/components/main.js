@@ -3,44 +3,91 @@ import { jsx } from 'theme-ui';
 import styled from '@emotion/styled';
 import BurgerNav from './burgernav';
 // import SEO from './SEO';
+import { useSiteMetadata } from './hooks/useSiteMetadata';
+import Navbar from './navbar/navbar';
+import Footer from './footer';
 
 const Container = styled.div`
 	grid-area: main;
 
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: 3fr;
-	grid-template-areas: 'content';
-	// 'footer';
+	grid-template-rows: .5fr 2fr .5fr;
+	grid-template-areas: 
+	'header'
+	'content';
+	'footer';
 
-	// height: 100vh;
-	overflow: hidden;
+	height: 100vh;
+	overflow: auto;
+	// overflow: hidden;
+
 `;
 
 const Content = styled.main`
 	grid-area: content;
+	background: -webkit-linear-gradient(to right, #e9e4f0, #d3cce3); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(
+		to right,
+		#e9e4f0,
+		#d3cce3
+	); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 `;
 
-const MainWrap = styled.div`
-	height: 100vh;
-	overflow: hidden;
-`;
-const PageWrap = styled.div`
-	overflow: auto;
-`;
+// const Header = styled.header`
+// 	grid-area: header;
+// 	margin: 2em;
+// `;
+
+// export const Title = styled.h1`
+// 	font-size: 5em;
+// 	display: flex;
+// 	justify-content: center;
+
+// 	@media (max-width: 920px) {
+// 		font-size: 3em;
+// 	}
+
+// 	@media (max-width: 1024px) {
+// 		font-size: 1em;
+// 	}
+// `;
+
+// const MainWrap = styled.div`
+// 	// height: 100vh;
+// 	// overflow: auto;
+// `;
+// const PageWrap = styled.div`
+// 	overflow: auto;
+// `;
 
 const Main = ({ children }) => {
 	return (
-		<MainWrap>
-			<Container>
-				<BurgerNav pageWrapId={'PageWrap'} outerContainerId={'MainWrap'} />
-				<PageWrap>
-					{/* <SEO/> */}
-					<Content>{children}</Content>
-					{/* <Footer /> */}
-				</PageWrap>
-			</Container>
-		</MainWrap>
+		// <MainWrap>
+		<Container>
+			<Navbar />
+			{/* <Header>
+					<Title
+					sx={{
+						color: 'text',
+						fontFamily: 'heading',
+						fontWeight: 'heading',
+						fontSize: '3rem',
+						lineHeight: 'body',
+						letterSpacing: 'body',
+					}}
+					>
+						{title}
+					</Title>
+				</Header> */}
+			{/* <BurgerNav pageWrapId={'PageWrap'} outerContainerId={'MainWrap'} /> */}
+			{/* <PageWrap> */}
+			{/* <SEO/> */}
+			<Content>{children}</Content>
+			{/* <Footer /> */}
+			{/* </PageWrap> */}
+		</Container>
+		//  </MainWrap>
 	);
 };
 

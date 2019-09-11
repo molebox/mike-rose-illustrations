@@ -21,6 +21,26 @@ const Header = styled.header`
 	text-align: center;
 	padding: 2rem;
 
+	-webkit-animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) 500ms both;
+	animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) 500ms both;
+
+	@-webkit-keyframes fade-in {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+	@keyframes fade-in {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
 	& > h1 {
 		font-family: Open Sans;
 		letter-spacing: 3px;
@@ -44,7 +64,6 @@ const Container = styled.main`
 	margin: auto;
 	overflow: auto;
 	padding: 0 2rem;
-	// height: 100%;
 `;
 
 const Card = styled.div`

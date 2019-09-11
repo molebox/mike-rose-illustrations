@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 const Container = styled.div`
 	grid-area: section;
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(1fr, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(1fr, 2fr));
 
 	grid-template-areas:
 		'.'

@@ -10,11 +10,17 @@ import Img from 'gatsby-image';
 const home = ['H', 'O', 'M', 'E'];
 
 const Content = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	padding: 0;
-	margin-top: 2em;
+	// display: flex;
+	// flex-direction: column;
+	// justify-content: center;
+	// padding: 0;
+	// margin-top: 2em;
+
+	max-width: 1100px;
+	margin: 0 auto;
+	// overflow: auto;
+	padding: 1.5em;
+	height: 100vh;
 `;
 
 const TitleAndLogo = styled.div`
@@ -48,15 +54,17 @@ const ImageContainer = styled.div`
 `;
 
 const Image = styled(Img)`
-	width: 80%;
-	height: 40em;
-	margin: 0 2em 3em 2em;
+	// width: 100%;
+	height: 600px;
+	// margin: 0 2em 3em 2em;
 	border: solid 0.1em black;
 	border-radius: 0.4em;
+	box-shadow: 8px 12px 22px 5px hsla(0, 0%, 0%, 0.21);
 
 	@media (max-width: 920px) {
-		height: 20em;
-		margin: 0 2em 5em 2em;
+		height: 15em;
+		width: 85%;
+		margin: 2em 2em 5em 2em;
 	}
 `;
 
@@ -75,12 +83,11 @@ export const Title = styled.h1`
 `;
 
 export const SubTitle = styled.h4`
-	font-size: 2em;
-	margin-bottom: 2em;
-	// padding: 2em;
+	margin: 1em;
+	padding: 0.6em;
 	display: flex;
 	justify-content: center;
-	align-items: flex-start;
+	// align-items: flex-start;
 
 	@media (max-width: 920px) {
 		font-size: 0.7em;
@@ -104,7 +111,7 @@ export const Index = () => {
 				<Content>
 					{edges.map(({ node }, index) => (
 						<div key={index}>
-							<TitleAndLogo>
+							{/* <TitleAndLogo>
 								<Title
 									sx={{
 										color: 'text',
@@ -117,10 +124,10 @@ export const Index = () => {
 								>
 									{node.title}
 								</Title>
-							</TitleAndLogo>
-							<ImageContainer>
-								<Image fluid={node.mainImage.asset.fluid} />
-							</ImageContainer>
+							</TitleAndLogo> */}
+							{/* <ImageContainer> */}
+							<Image fluid={node.mainImage.asset.fluid} />
+							{/* </ImageContainer> */}
 							<SubTitle
 								sx={{
 									color: 'text',
@@ -128,6 +135,7 @@ export const Index = () => {
 									fontWeight: 'heading',
 									lineHeight: 'body',
 									letterSpacing: 'body',
+									fontSize: [3],
 								}}
 							>
 								{node.description}
@@ -208,11 +216,10 @@ export default Index;
 // 	}
 // `;
 
-
 // const Image = styled(Img)`
 // 	width: 100%;
 // 	height: 600px;
-	
+
 // 	border-radius: 0.4em;
 // 	box-shadow: 8px 12px 22px 5px hsla(0, 0%, 0%, 0.21);
 // 	-webkit-animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) 500ms both;

@@ -19,7 +19,6 @@ const EmailContainer = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: 1em;
 
 	.link {
 		text-decoration: none;

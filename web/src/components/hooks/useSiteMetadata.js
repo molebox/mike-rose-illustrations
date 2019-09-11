@@ -1,3 +1,5 @@
+import { useStaticQuery } from 'gatsby';
+
 /**
  * Hook to provide the site meta data.
  * Provides title, description and siteUrl, instagram

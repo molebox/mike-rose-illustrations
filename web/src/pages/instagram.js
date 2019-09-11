@@ -9,15 +9,9 @@ const gram = ['I', 'N', 'S', 'T', 'A'];
 const Instagram = () => (
 	<Layout>
 		<Sidebar letters={gram} />
-		<div
-			css={{
-				padding: '2rem',
-			}}
-		>
-			<Main>
-				<Grid card={ComplexCard} />
-			</Main>
-		</div>
+		<Main>
+			<Grid card={ComplexCard} />
+		</Main>
 	</Layout>
 );
 

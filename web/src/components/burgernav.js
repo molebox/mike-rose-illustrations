@@ -112,16 +112,6 @@ export default (props) => {
 					About Mike
 				</Link>
 
-				{/* <Link
-					sx={{
-						color: 'text',
-					}}
-					className="link"
-					to="/gallery"
-				>
-					Artwork
-				</Link> */}
-
 				<Link
 					sx={{
 						color: 'text',
