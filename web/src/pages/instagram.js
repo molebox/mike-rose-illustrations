@@ -1,4 +1,5 @@
-import React from 'react';
+/** @jsx jsx */
+import { jsx } from 'theme-ui';
 import Layout from './../components/layout';
 import Main from './../components/main';
 import Sidebar from '../components/sidebar/Sidebar';
@@ -10,7 +11,9 @@ const Instagram = () => (
 	<Layout>
 		<Sidebar letters={gram} />
 		<Main>
-			<Grid card={ComplexCard} />
+			<div sx={{ padding: '2em' }}>
+				<Grid card={ComplexCard} />
+			</div>
 		</Main>
 	</Layout>
 );
