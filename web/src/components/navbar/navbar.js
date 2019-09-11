@@ -37,7 +37,7 @@ const Navbar = () => {
 						}}
 						to="/shop"
 					>
-						Shop
+						Store
 					</Link>
 				</li>
 				<li>

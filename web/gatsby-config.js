@@ -25,7 +25,7 @@ module.exports = {
         resolve: 'gatsby-plugin-google-fonts',
         options: {
           fonts: [
-            `Rock Salt`,
+            `Nanum Pen Script`,
             `Open Sans`,
             `source sans pro\:300,400,400i,700` 
           ]

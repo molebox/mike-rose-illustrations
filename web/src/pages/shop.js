@@ -42,7 +42,8 @@ const Header = styled.header`
 	}
 
 	& > h1 {
-		font-family: Open Sans;
+		font-family: Nanum Pen Script;
+		font-weight: 300;
 		letter-spacing: 3px;
 		font-size: 4rem;
 		margin-bottom: 2rem;
@@ -131,6 +132,12 @@ const Description = styled.div`
 	-webkit-animation: fade-in 1.4s cubic-bezier(0.39, 0.575, 0.565, 1) 500ms both;
 	animation: fade-in 1.4s cubic-bezier(0.39, 0.575, 0.565, 1) 500ms both;
 
+	& > div > h4 {
+		@media (max-width: 700px) {
+			font-size: 1.5rem;
+		}
+	}
+
 	@-webkit-keyframes fade-in {
 		0% {
 			opacity: 0;
@@ -206,6 +213,12 @@ const PriceContainer = styled.div`
 	-webkit-animation: fade-in 1.4s cubic-bezier(0.39, 0.575, 0.565, 1) 500ms both;
 	animation: fade-in 1.4s cubic-bezier(0.39, 0.575, 0.565, 1) 500ms both;
 
+	& > h3 {
+		@media (max-width: 700px) {
+			font-size: 0.7em;
+		}
+	}
+
 	@-webkit-keyframes fade-in {
 		0% {
 			opacity: 0;
@@ -263,12 +276,12 @@ const Shop = () => {
 											color: 'text',
 											fontFamily: 'heading',
 											fontWeight: 'heading',
-											fontSize: '1rem',
+											fontSize: [5],
 											lineHeight: 'body',
 											letterSpacing: 'body',
 											borderBottom: 'solid 0.1em',
 											borderColor: 'text',
-											padding: '1em',
+											padding: '0.5em',
 										}}
 									>
 										{node.defaultProductVariant.title}
@@ -285,6 +298,7 @@ const Shop = () => {
 									>
 										{node.blurb}
 									</h3>
+									<br />
 									<h3
 										sx={{
 											color: 'text',

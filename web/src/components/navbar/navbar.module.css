@@ -42,7 +42,7 @@ a {
 .header .logo {
   display: block;
   float: left;
-  font-size: 0.7em;
+  font-size: 1em;
   padding: 1em;
   text-decoration: none;
   letter-spacing: 1em;
@@ -65,7 +65,7 @@ a {
   cursor: pointer;
   display: inline-block;
   /* float: right; */
-  padding: 1.5em 0;
+  padding: 1.5em 1.5em;
   position: relative;
   user-select: none;
 }
@@ -135,7 +135,7 @@ a {
   }
 
   .header .logo {
-    font-size: 1.3em;
+    font-size: 2em;
   }
 
   .header li {

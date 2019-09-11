@@ -28,7 +28,7 @@ export default {
 	},
 	fonts: {
 		body: 'Open Sans',
-		heading: 'Rock Salt',
+		heading: 'Nanum Pen Script',
 	},
 	fontWeights: {
 		body: 300,
