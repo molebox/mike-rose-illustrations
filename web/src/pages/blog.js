@@ -77,6 +77,7 @@ const Card = styled.div`
 	-webkit-box-shadow: 4px 7px 16px -5px rgba(0, 0, 0, 0.75);
 	-moz-box-shadow: 4px 7px 16px -5px rgba(0, 0, 0, 0.75);
 	box-shadow: 4px 7px 16px -5px rgba(0, 0, 0, 0.75);
+	border-radius: 0.4em;
 
 	& > div {
 		padding: 1rem;
