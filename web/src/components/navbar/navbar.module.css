@@ -42,10 +42,10 @@ a {
 .header .logo {
   display: block;
   float: left;
-  font-size: 1em;
-  padding: 1em;
+  font-size: 0.9em;
+  padding: 1.2em 1em;
   text-decoration: none;
-  letter-spacing: 1em;
+  letter-spacing: 0.5em;
 
   -webkit-animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) 500ms both;
 	animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) 500ms both;
@@ -132,6 +132,7 @@ a {
   .header {
     display: flex;
     justify-content: space-around;
+    align-items: center;
   }
 
   .header .logo {

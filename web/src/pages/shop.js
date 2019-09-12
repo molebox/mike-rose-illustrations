@@ -83,26 +83,19 @@ const Card = styled.div`
 		margin-bottom: 2rem;
 	}
 
-	&:nth-child(even) img {
-		order: 2;
-	}
-
-	& img {
-		height: 400px;
-	}
+	// &:nth-child(even) .img {
+	// 	order: 2;
+	// }
 
 	@media (max-width: 700px) {
 		display: block;
 	}
 `;
 
-// const ImageContainer = styled.div`
-// 	height: 300px;
-// `;
-
 const Image = styled(Img)`
 	width: 100%;
 	border-radius: 0.4em;
+	border: 1px solid black;
 	-webkit-animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) 500ms both;
 	animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) 500ms both;
 

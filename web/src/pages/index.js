@@ -17,53 +17,53 @@ const Content = styled.div`
 	// margin-top: 2em;
 
 	max-width: 1100px;
-	margin: 0 auto;
+	margin: 2em auto;
 	// overflow: auto;
-	padding: 1.5em;
+	// padding: 1.5em;
 	height: 100vh;
 `;
 
-const TitleAndLogo = styled.div`
-	display: flex;
-	flex-direction: row;
-	margin: 2em;
-	justify-content: center;
-	align-items: center;
+// const TitleAndLogo = styled.div`
+// 	display: flex;
+// 	flex-direction: row;
+// 	margin: 2em;
+// 	justify-content: center;
+// 	align-items: center;
 
-	@media (max-width: 1024px) {
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
-		margin: 2em 2em 2em 0;
-	}
+// 	@media (max-width: 1024px) {
+// 		display: flex;
+// 		flex-direction: row;
+// 		justify-content: center;
+// 		align-items: center;
+// 		margin: 2em 2em 2em 0;
+// 	}
 
-	@media (max-width: 768px) {
-		display: flex;
-		flex-direction: row;
-		margin: 2em;
-		justify-content: center;
-		align-items: center;
-	}
-`;
+// 	@media (max-width: 768px) {
+// 		display: flex;
+// 		flex-direction: row;
+// 		margin: 2em;
+// 		justify-content: center;
+// 		align-items: center;
+// 	}
+// `;
 
-const ImageContainer = styled.div`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-`;
+// const ImageContainer = styled.div`
+// 	display: flex;
+// 	justify-content: center;
+// 	align-items: center;
+// `;
 
 const Image = styled(Img)`
 	// width: 100%;
-	height: 600px;
-	// margin: 0 2em 3em 2em;
+	height: 65vh;
 	border: solid 0.1em black;
 	border-radius: 0.4em;
 
 	@media (max-width: 920px) {
-		height: 15em;
-		width: 85%;
-		margin: 2em 2em 5em 2em;
+		height: 50vh;
+		// width: 85%;
+		margin: 2em;
+		// margin: 2em 2em 5em 2em;
 	}
 `;
 
@@ -86,7 +86,7 @@ export const SubTitle = styled.h4`
 	padding: 0.6em;
 	display: flex;
 	justify-content: center;
-	// align-items: flex-start;
+	align-items: center;
 
 	@media (max-width: 920px) {
 		font-size: 0.4em;
@@ -95,7 +95,7 @@ export const SubTitle = styled.h4`
 
 	@media (max-width: 1024px) {
 		font-size: 1em;
-		margin: 0 1em 1em 1em;
+		// margin: 0 1em 1em 1em;
 	}
 `;
 
@@ -110,23 +110,7 @@ export const Index = () => {
 				<Content>
 					{edges.map(({ node }, index) => (
 						<div key={index}>
-							{/* <TitleAndLogo>
-								<Title
-									sx={{
-										color: 'text',
-										fontFamily: 'heading',
-										fontWeight: 'heading',
-										fontSize: '3rem',
-										lineHeight: 'body',
-										letterSpacing: 'body',
-									}}
-								>
-									{node.title}
-								</Title>
-							</TitleAndLogo> */}
-							{/* <ImageContainer> */}
 							<Image fluid={node.mainImage.asset.fluid} />
-							{/* </ImageContainer> */}
 							<SubTitle
 								sx={{
 									color: 'text',
