@@ -74,6 +74,9 @@ const Card = styled.div`
 	background: #f1f1f1;
 	margin-bottom: 2rem;
 	padding: 2rem;
+	-webkit-box-shadow: 4px 7px 16px -5px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 4px 7px 16px -5px rgba(0, 0, 0, 0.75);
+	box-shadow: 4px 7px 16px -5px rgba(0, 0, 0, 0.75);
 
 	& > div {
 		padding: 1rem;
@@ -81,12 +84,6 @@ const Card = styled.div`
 
 	& h4 {
 		margin-bottom: 2rem;
-	}
-
-	&:hover {
-		-webkit-box-shadow: 4px 7px 16px -5px rgba(0, 0, 0, 0.75);
-		-moz-box-shadow: 4px 7px 16px -5px rgba(0, 0, 0, 0.75);
-		box-shadow: 4px 7px 16px -5px rgba(0, 0, 0, 0.75);
 	}
 
 	@media (max-width: 700px) {

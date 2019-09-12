@@ -74,6 +74,9 @@ const Card = styled.div`
 	margin-bottom: 2rem;
 	padding: 2rem;
 	cursor: pointer;
+	-webkit-box-shadow: 4px 7px 16px -5px rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 4px 7px 16px -5px rgba(0, 0, 0, 0.75);
+	box-shadow: 4px 7px 16px -5px rgba(0, 0, 0, 0.75);
 
 	& > div {
 		padding: 1rem;
@@ -87,11 +90,6 @@ const Card = styled.div`
 		order: 2;
 	}
 
-	&:hover {
-		-webkit-box-shadow: 4px 7px 16px -5px rgba(0, 0, 0, 0.75);
-		-moz-box-shadow: 4px 7px 16px -5px rgba(0, 0, 0, 0.75);
-		box-shadow: 4px 7px 16px -5px rgba(0, 0, 0, 0.75);
-	}
 
 	@media (max-width: 700px) {
 		display: block;
