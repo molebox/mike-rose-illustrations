@@ -14,6 +14,8 @@ import localeString from './locale/String'
 import localeText from './locale/Text'
 import localeBlockContent from './locale/BlockContent'
 import homePage from './homePage';
+import author from './author';
+import post from './post';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -28,6 +30,8 @@ export default createSchema({
     product,
     vendor,
     category,
+    author,
+    post,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     blockContent,

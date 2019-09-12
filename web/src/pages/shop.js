@@ -83,9 +83,11 @@ const Card = styled.div`
 		margin-bottom: 2rem;
 	}
 
-	// &:nth-child(even) .img {
-	// 	order: 2;
-	// }
+	&:hover {
+		-webkit-box-shadow: 4px 7px 16px -5px rgba(0, 0, 0, 0.75);
+		-moz-box-shadow: 4px 7px 16px -5px rgba(0, 0, 0, 0.75);
+		box-shadow: 4px 7px 16px -5px rgba(0, 0, 0, 0.75);
+	}
 
 	@media (max-width: 700px) {
 		display: block;

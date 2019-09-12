@@ -5,6 +5,9 @@ import Layout from '../components/layout';
 import Main from './../components/main';
 import Sidebar from '../components/sidebar/Sidebar';
 import Img from 'gatsby-image';
+import { graphql } from 'gatsby';
+import { useStaticQuery } from 'gatsby';
+import { Link } from 'gatsby';
 
 const blog = ['B', 'L', 'O', 'G'];
 
@@ -70,6 +73,7 @@ const Card = styled.div`
 	background: #f1f1f1;
 	margin-bottom: 2rem;
 	padding: 2rem;
+	cursor: pointer;
 
 	& > div {
 		padding: 1rem;
@@ -83,8 +87,10 @@ const Card = styled.div`
 		order: 2;
 	}
 
-	& img {
-		height: 400px;
+	&:hover {
+		-webkit-box-shadow: 4px 7px 16px -5px rgba(0, 0, 0, 0.75);
+		-moz-box-shadow: 4px 7px 16px -5px rgba(0, 0, 0, 0.75);
+		box-shadow: 4px 7px 16px -5px rgba(0, 0, 0, 0.75);
 	}
 
 	@media (max-width: 700px) {
@@ -94,7 +100,7 @@ const Card = styled.div`
 
 const Image = styled(Img)`
 	width: 100%;
-	border-radius: 50%;
+	border-radius: 0.4em;
 	border: 1px solid black;
 	-webkit-animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) 500ms both;
 	animation: fade-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) 500ms both;
@@ -149,56 +155,95 @@ const Description = styled.div`
 	}
 `;
 
-const Blog = () => (
-	<Layout>
-		<Sidebar letters={blog} />
-		<Main>
-			<Header>
-				<h1>Mikes Blog</h1>
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-					magna aliqua.
-				</p>
-			</Header>
-			<Container>
-				<Card>
-					image
-					<Description>
-						<div>
-							<h4
-								sx={{
-									color: 'text',
-									fontFamily: 'heading',
-									fontWeight: 'heading',
-									fontSize: [5],
-									lineHeight: 'body',
-									letterSpacing: 'body',
-									borderBottom: 'solid 0.1em',
-									borderColor: 'text',
-									padding: '0.5em',
-								}}
-							>
-								blog one
-							</h4>
-							<h3
-								sx={{
-									color: 'text',
-									fontFamily: 'body',
-									fontWeight: 'body',
-									fontSize: '.9rem',
-									lineHeight: 'body',
-									letterSpacing: 'body',
-								}}
-							>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-								dolore magna aliqua.
-							</h3>
-						</div>
-					</Description>
-				</Card>
-			</Container>
-		</Main>
-	</Layout>
-);
+const Blog = () => {
+	const blogPosts = useStaticQuery(query);
+	const posts = blogPosts.allSanityPost.edges;
+	return (
+		<Layout>
+			<Sidebar letters={blog} />
+			<Main>
+				<Header>
+					<h1>Mikes Blog</h1>
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+						dolore magna aliqua.
+					</p>
+				</Header>
+				<Container>
+					{posts.map(({ node }) => (
+						<Link
+							to={`/${node.slug}`}
+							sx={{
+								color: 'text',
+								textDecoration: 'none',
+								fontFamily: 'heading',
+								letterSpacing: 'text',
+							}}
+						>
+							<Card>
+								<Image className="img" fluid={node.mainImage.asset.fluid} alt={node.title} />
+								<Description>
+									<div>
+										<h4
+											sx={{
+												color: 'text',
+												fontFamily: 'heading',
+												fontWeight: 'heading',
+												fontSize: [5],
+												lineHeight: 'body',
+												letterSpacing: 'body',
+												borderBottom: 'solid 0.1em',
+												borderColor: 'text',
+												padding: '0.5em',
+											}}
+										>
+											{node.title}
+										</h4>
+										<h3
+											sx={{
+												color: 'text',
+												fontFamily: 'body',
+												fontWeight: 'body',
+												fontSize: '.9rem',
+												lineHeight: 'body',
+												letterSpacing: 'body',
+											}}
+										>
+											{node.excerpt}
+										</h3>
+									</div>
+								</Description>
+							</Card>
+						</Link>
+					))}
+				</Container>
+			</Main>
+		</Layout>
+	);
+};
 
 export default Blog;
+
+export const query = graphql`
+	query blogPosts {
+		allSanityPost {
+			edges {
+				node {
+					title
+					publishedAt
+					mainImage {
+						asset {
+							fluid {
+								...GatsbySanityImageFluid
+							}
+						}
+					}
+					excerpt
+					slug {
+						current
+					}
+				}
+			}
+		}
+	}
+`;
