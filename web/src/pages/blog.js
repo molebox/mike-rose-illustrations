@@ -8,6 +8,7 @@ import Img from 'gatsby-image';
 import { graphql } from 'gatsby';
 import { useStaticQuery } from 'gatsby';
 import { Link } from 'gatsby';
+import { format, isFuture } from 'date-fns';
 
 const blog = ['B', 'L', 'O', 'G'];
 
@@ -91,7 +92,6 @@ const Card = styled.div`
 		order: 2;
 	}
 
-
 	@media (max-width: 700px) {
 		display: block;
 	}
@@ -154,6 +154,10 @@ const Description = styled.div`
 	}
 `;
 
+export function getBlogUrl(slug) {
+	return `/blog/${slug.current || slug}/`;
+}
+
 const Blog = () => {
 	const blogPosts = useStaticQuery(query);
 	const posts = blogPosts.allSanityPost.edges;
@@ -171,7 +175,7 @@ const Blog = () => {
 				<Container>
 					{posts.map(({ node }) => (
 						<Link
-							to={`/${node.slug}`}
+							to={getBlogUrl(node.slug)}
 							sx={{
 								color: 'text',
 								textDecoration: 'none',
